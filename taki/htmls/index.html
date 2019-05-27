@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link href="css/bootstrap.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+		<title>Front-End - Takí</title>
+	</head>
+	<body class="bg-light">
+		<div class="container bg-light"style="margin-left: 0px;margin-right: 0px;padding-left: 20px;">
+			<div class=row>
+				<aside role="complementary"class="col-md-3 border-right bg-light" style="height: 100%;padding-right: 0px;padding-left: 0px;border-right-width: 0px;">
+					<nav class="sidebar">
+						<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+              <div class="profile-userpic">
+                <img src="https://www.computerhope.com/jargon/b/black.jpg" class="rounded-circle"style="width: 50px;height: 50px;">
+              </div>
+              <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            </a>
+						<ul class="list-unstyled components">
+				            <li class="active border">
+				                <a href="#homeSubmenu"></a>
+				            </li>
+				            <li class="border">
+				                <a href="#">Home</a>
+				            </li>
+				            <li class="border">
+				                <a href="#">Análises</a>
+				            </li>
+				            <li class="border">
+				                <a href="#">Mapas</a>
+				            </li>
+				        </ul>
+					</nav>
+				</aside>
+				<div class="col-md-9 bg-light">
+					<div><h3>Analises</h3></div>
+        	<ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="home" class="tab-pane  active"><br>
+              <div>
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
+            <div id="menu1" class="tab-pane fade in"><br>
+              <h3>Menu 1</h3>
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div id="menu2" class="tab-pane fade in"><br>
+              <h3>Menu 2</h3>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            </div>
+          </div>
+				</div>
+		  </div>
+    </div>
+  <script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var tempo = [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050];
+  var desistiu = [86,114,106,106,107,111,133,221,783,2478];
+  var nEncontrou = [282,350,411,502,635,809,947,1402,3700,5267];
+  var lItem = [168,170,178,190,203,276,408,547,675,734];
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+      labels: tempo,
+      datasets: [
+        { 
+          data: desistiu,
+          label: "Desistiu",
+          borderColor: "#FF0000",
+          fill: false,
+          lineTension: 0
+        },
+        { 
+          data: nEncontrou,
+          label: "Não encontrou",
+          borderColor: "#FFE700",
+          fill: false,
+          lineTension: 0
+        },
+        { 
+          data: lItem,
+          label: "Levou Item",
+          borderColor: "#24B3D9",
+          fill: false,
+          lineTension: 0
+        }
+      ]
+    },
+      options: {
+        responsive: true,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      display: true
+                  }
+              }],
+              yAxes: [{
+                  display: true
+              }]
+          }
+      }
+  });
+  </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	</body>
+</html>
