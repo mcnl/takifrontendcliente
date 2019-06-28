@@ -1,0 +1,317 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	  <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	    <!-- Meta, title, CSS, favicons, etc. -->
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="images/favicon.ico" type="image/ico" />
+
+	    <title>Takí - Find things faster</title>
+
+	    <!-- Bootstrap -->
+	    <link href="bootstrap.min.css" rel="stylesheet">
+	    <!-- Font Awesome -->
+	    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+	    
+	    <link href="custom.css" rel="stylesheet">
+	  </head>
+
+	  <body id="corpo" class="nav-md">
+	    <div class="container body">
+	      <div class="main_container">
+	        <div class="col-md-3 left_col">
+	          <div class="left_col scroll-view">
+	            <div class="clearfix">
+	            </div>
+
+	            <!-- menu profile quick info -->
+	            <div class="profile clearfix">
+	              <div class="profile_pic">
+	                <img src="images/img.jpg" alt="..." class="img-circle profile_img" style="width: 70px;margin-right: 60px;">
+	              </div>
+	              <div class="profile_info">
+	                <h2><STRONG>Mario</STRONG></h2>
+	                <span>Arco Mix</span>
+	                <br>
+	                <span><i class="fa fa-map-marker"></i> Várzea, Recife</span>
+	                
+	              </div>
+	            </div>
+	            <!-- /menu profile quick info -->
+	            <!-- sidebar menu -->
+	            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+	              <div class="menu_section">
+	                <ul class="nav side-menu">
+	                  <li class="unactive"><a href="index.html"><i class="fa fa-home "></i>Home</a>
+	                  </li>
+	                  <li class="active"><a><i class="fa fa-line-chart"></i>Análises</a>
+	                  </li>
+	                  </li>
+	                </ul>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+			<div id="menutoggler" style="display: none;">
+		    	<button type="button" id="menu_toggle" class="btn btn-warning btn-circle btn-lg"><i class="fa fa-align-justify" ></i></button>	
+		    </div>
+	        <!-- page content -->
+		        <div class="right_col" role="main">
+		          <div class="row">
+		            <div class="col-md-12 col-sm-12 col-xs-12">
+		              <div class="dashboard_graph" style="padding-bottom: 0px;">
+
+		                <div class="row x_title">
+		                  <div class="col-md-6">
+		                    <h3>Análises</h3>
+		                   </div>
+		                 </div>
+		               </div>
+		       	<div class="col-md-12 col-sm-6 col-xs-12">
+	                <div class="x_panel">
+	                  <div class="x_content">
+	                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+	                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+	                        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Itens</a>
+	                        </li>
+	                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Perfil dos Clientes</a>
+	                        </li>
+	                      </ul>
+	                      </div>
+	                      <div id="myTabContent" class="tab-content">
+	                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+	                        <div class="title_right">
+				                <div class="col-md-5 col-sm-5 col-xs-12">
+
+				                  <div class="container btn-group">
+								    <div class="form-group">
+									  <select class="form-control btn btn-danger col-xs-12" id="item1" style="width: 222px;" onchange="draw()">
+									  	<option hidden >--Item--</option>
+									    <option>Achocolatado</option>
+									    <option>Arroz</option>
+									    <option>Feijão</option>
+									    <option>Biscoito</option>
+									  </select>
+									</div>
+								  </div>
+								  </div>
+								 
+					                <canvas id="lines"></canvas>
+					                </div>         
+				              </div>
+	                        
+	                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab" style="">
+	                        	<div class="btn-group row" style="width: 100vw;">
+								    <div class="form-group">
+									  <select class="form-control btn btn-warning col-xs-6" id="idade" style="width: 222px;" onchange="create1()">
+									    <option>Todas Idades</option>
+									    <option>Menos 18 anos</option>
+									    <option>18 - 25 anos</option>
+									    <option>25 - 35 anos</option>
+									    <option>35 - 45 anos</option>
+									  </select>
+									</div>
+								    <div class="form-group">
+									  <select class="form-control btn btn-warning col-xs-6" id="item2" style="width: 222px;left: 50px;margin-bottom: 0px;bottom: 10px;top: -10;" onchange="create1()">
+									    <option>Todos Itens</option>
+									    <option>Achocolatado</option>
+									    <option>Arroz</option>
+									    <option>Feijão</option>
+									    <option>Biscoito</option>
+									  </select>
+									</div>
+								  </div>
+								  <br>
+					                
+					                <canvas id="bars"></canvas>
+					              
+	                        </div>
+	                      
+	                    </div>
+
+	                  </div>
+	                </div>
+	              </div>
+	     
+		            </div>
+		          </div> 
+		         </div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+	    <script>
+	    	var gLinha;
+	    	var gLinha1;	
+	    	    //console.log(document.getElementById("item1").value);
+	    	    function draw(){
+	    	    	if(gLinha){
+	    	    		gLinha.destroy();
+	    	    		console.log("Destrui LINHAS");
+	    	    	}
+			    	  var desistiu = [86,114,106,106,107,111,133,221];
+					  var nEncontrou = [282,350,411,502,635,809,947,1402];
+					  var lItem = [168,170,178,190,203,276,408,547];
+					  if(document.getElementById("item1").value=="Achocolatado"){
+						  desistiu = [19,22,10,25,99,73,99,61];
+						  nEncontrou = [32,91,3,13,69,80,100,32];
+						  lItem = [35,69,16,85,28,45,7,85];
+					  }
+					  else if(document.getElementById("item1").value=="Feijão"){
+						  desistiu = [84,91,5,80,3,96,40,63];
+						  nEncontrou = [55,94,5,8,87,62,76,94];
+						  lItem = [51,67,77,58,63,12,7,12];					  }
+					  else if(document.getElementById("item1").value=="Arroz"){
+						  desistiu = [44,35,25,98,27,85,30,7];
+						  nEncontrou = [64,67,82,51,27,55,85,67];
+						  lItem = [7,5,28,53,75,7,54,71];
+					  }
+
+					  var ctxLines = document.getElementById('lines').getContext('2d');
+					  var tempo = ["09/06","10/06","11/06","12/06","13/06","14/06","15/06","16/06"];
+					  gLinha = new Chart(ctxLines, {
+					      type: 'line',
+					      data: {
+					      labels: tempo,
+					      datasets: [
+					        { 
+					          data: desistiu,
+					          label: "Desistiu",
+					          borderColor: "#FF0000",
+					          backgroundColor: "#FF0000",
+					          fill: false,
+					          lineTension: 0
+					        },
+					        { 
+					          data: nEncontrou,
+					          label: "Não encontrou",
+					          borderColor: "#FFE700",
+					          backgroundColor: "#FFE700",
+					          fill: false,
+					          lineTension: 0
+					        },
+					        { 
+					          data: lItem,
+					          label: "Levou Item",
+					          borderColor: "#24B3D9",
+					          backgroundColor: "#24B3D9",
+					          fill: false,
+					          lineTension: 0
+					        }
+					      ]
+					    },
+					      options: {
+					        responsive: true,
+					          scales: {
+					              yAxes: [{
+					                  ticks: {
+					                      beginAtZero: true,
+					                      display: true
+					                  }
+					              }],
+					              yAxes: [{
+					                  display: true
+					              }]
+					          }
+					      }
+					  });
+			  	}
+			  					 
+			  	function create1(){
+			  		if(gLinha1){
+	    	    		gLinha1.destroy();
+	    	    		console.log("Destrui BARS");
+	    	    	}
+			      var ctxBars = document.getElementById('bars').getContext('2d');
+				  var tempo = ["Achocolatado","Arroz","Feijão","Biscoito"];
+				  var lItem = [50,70,63,49];
+				  if(document.getElementById("idade").value=="Menos 18 anos"){
+				  		lItem = [99,10,10,90];
+				  }
+				  else if(document.getElementById("idade").value=="18 - 25 anos"){
+				  		lItem = [80,45,40,80];
+				  }
+				  else if(document.getElementById("idade").value=="25 - 35 anos"){
+				  		lItem = [10,100,100,3];
+				  }
+				  else if(document.getElementById("idade").value=="35 - 45 anos"){
+				  		lItem = [12,97,86,50];
+				  }
+				  if(document.getElementById("item2").value=="Achocolatado"){
+				  		for(var i = 0;i<4;i++){
+				  			if(i!=0){
+				  				lItem[i]=0;
+				  			}
+				  		}
+				  }
+				  else if(document.getElementById("item2").value=="Arroz"){
+				  		for(var i = 0;i<4;i++){
+				  			if(i!=1){
+				  				lItem[i]=0;
+				  			}
+				  		}
+				  }
+				  else if(document.getElementById("item2").value=="Feijão"){
+				  		for(var i = 0;i<4;i++){
+				  			if(i!=2){
+				  				lItem[i]=0;
+				  			}
+				  		}
+				  }
+				  else if(document.getElementById("item2").value=="Biscoito"){
+				  		for(var i = 0;i<4;i++){
+				  			if(i!=3){
+				  				lItem[i]=0;
+				  			}
+				  		}
+				  }
+				  gLinha1 = new Chart(ctxBars, {
+				      type: 'bar',
+				      data: {
+				      labels: tempo,
+				      datasets: [
+				        { 
+				          data: lItem,
+				          label: "Levou Item",
+				          backgroundColor: "#24B3D9",
+				          borderColor:"#24B3D9",
+				          fill: false,
+				          lineTension: 0
+				        }
+				      ]
+				    },
+				      options: {
+				      	
+				        responsive: true,
+				          scales: {
+				              yAxes: [{
+				              	stacked: true,
+				                  ticks: {
+				                      beginAtZero: true,
+				                      display: true,
+				                     
+				                  }
+				              }],
+				              xAxes: [{
+				              	stacked: true,
+				                  display: true
+				              }]
+				          }
+				      }
+				  });
+				  }
+		 	 
+		  </script>
+		<script src="jquery.min.js"></script>
+	    <script src="bootstrap.min.js"></script>
+	    <script src="custom.js"></script>
+	    
+	    
+		
+	  </body>
+	</html>
